@@ -22,6 +22,11 @@ const upload = multer({ storage: storage });
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(express.static("public"));
 
+// Route để vào trang Quản lý Ảnh
+app.get("/gallery", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // Route để upload file
 app.post("/upload", upload.single("image"), (req, res) => {
   if (!req.file) {
