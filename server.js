@@ -61,13 +61,10 @@ app.get("/images", (req, res) => {
         `;
 
     files.forEach((file) => {
-      const fileType = path.extname(file).slice(1); // Lấy loại file từ đuôi file
-
       imagesHTML += `
                 <tr>
                     <td><img src="/uploads/${file}" alt="${file}" style="width: 100px; height: auto;" /></td>
                     <td>${file}</td>
-                    <td>${fileType}</td>
                     <td><a href="/uploads/${file}" class="btn btn-primary btn-sm" target="_blank">Xem ảnh</a></td>
                 </tr>
             `;
